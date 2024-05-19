@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>찍툴 - 시험 몇 번으로 찍을까요?</title>
+    <meta name="description" content="시험이 코앞인데 몇 번으로 찍을지 고민이신가요? 이 사이트를 사용해보세요!">
+    <meta name="og:title" content="찍툴 - 시험 몇 번으로 찍을까요?">
+    <meta name="og:description" content="시험이 코앞인데 몇 번으로 찍을지 고민이신가요? 이 사이트를 사용해보세요!">
+</head>
+<style>
+    @font-face {
+        font-family: 'NeoDunggeunmo';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    html {
+        font-family: 'NeoDunggeunmo', 'Courier New', Courier, monospace;
+    }
+    body {
+        margin: 0px;
+        padding: 0px;
+    }
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid black;
+        padding: 12px;
+        box-sizing: border-box;
+    }
+    .header>h1 {
+        margin: 0px;
+        background-color: purple;
+        color: white;
+        text-align: center;
+        font-size: x-large;
+        padding: 12px;
+        box-sizing: border-box;
+    }
+    .card {
+        margin: auto;
+        max-width: 720px;
+        text-align: center;
+        padding: 12px;
+        box-sizing: border-box;
+    }
+    .ppopButton {
+        max-width: 720px;
+        width: 100%;
+        padding: 14px;
+        font-size: x-large;
+        box-sizing: border-box;
+        background-color: purple;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-family: 'NeoDunggeunmo', 'Courier New', Courier, monospace;
+        outline: solid 2px transparent;
+        transition: all;
+        transition-duration: 100ms;
+    }
+    .ppopButton:hover {
+        filter: brightness(90%);
+    }
+    .ppopButton:active {
+        transform: scale(95%);
+    }
+    .ppopButton:focus {
+        outline: solid 2px slateblue;
+    }
+    .title {
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    .settingText {
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    .settingText > input {
+        width: 32px;
+        font-size: xx-large;
+        font-family: 'NeoDunggeunmo', 'Courier New', Courier, monospace;
+        border-radius: 8px;
+        border: solid grey 1px;
+        padding: 4px;
+        text-align: center;
+    }
+    .settingText > input:focus {
+        outline: solid 2px slateblue;
+    }
+    #resultText {
+        font-size: 12rem;
+    }
+</style>
+<body>
+    <header class="header">
+        <h1>찍툴</h1>
+    </header>
+    <div class="card">
+        <h2 class="title">몇번으로 찍을까요?</h2>
+        <p class="settingText">
+            <input id="settingInput" type="number" value="5" min="2" max="5">지선다
+        </p>
+        <p>
+            아래 번호로 찍어보세요~
+        </p>
+        <div id="resultText">
+            -
+        </div>
+        <button onclick="ppop()" class="ppopButton">뽑기</button>
+        <p>
+            (c) 2024 yWeb.kr. All right Reserved.
+        </p>
+        <p>
+            Powered by yWeb.kr
+        </p>
+    </div>
+</body>
+<script>
+const settingInput = document.getElementById('settingInput')
+const resultText = document.getElementById('resultText')
+
+const ppop = () => {
+    const max = settingInput.value
+    resultText.innerText = Math.floor(Math.random() * max)+1;
+}
+</script>
+</html>
